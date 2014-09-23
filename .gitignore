@@ -1,0 +1,15 @@
+# .gitignore
+
+# Blacklist everything
+*
+
+# Whitelist individual items
+!README
+!README.md
+!contributors.txt
+!.gitignore
+!.zshrc
+!.aliases
+!.exports
+!.functions
+

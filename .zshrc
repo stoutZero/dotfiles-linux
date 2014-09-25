@@ -55,9 +55,5 @@ source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 
 # Customize to your needs...
-
-export HISTIGNORE='[ \t]:clear:exit:history'
-export LSCOLORS=
-export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
-
 source ~/.functions
+source ~/.exports

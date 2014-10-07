@@ -52,8 +52,8 @@ source $ZSH/oh-my-zsh.sh
 [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh # This loads NVM, if exists
 
 # Aliases, including my custom ones
-source ~/.aliases
+source ~/.files/.aliases
 
 # Customize to your needs...
-source ~/.functions
-source ~/.exports
+source ~/.files/.functions
+source ~/.files/.exports

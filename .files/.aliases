@@ -4,7 +4,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....="cd ../../../.."
 alias -- -="cd -"
-alias a='./artisan --env=local'
+alias a='./artisan'
 alias cla='clear; ls -lash '
 alias c='composer '
 alias dfh='df -h '

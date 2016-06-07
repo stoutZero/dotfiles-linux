@@ -24,8 +24,6 @@ export UPDATE_ZSH_DAYS=15
 
 export CHEATCOLORS=true
 
-export HOMEBREW_GITHUB_API_TOKEN="987325bad129fcd2451839a0d9afc5f1be6ad23e"
-
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
 
@@ -48,8 +46,15 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(colored-man colorize encode64 git)
 
-source $ZSH/oh-my-zsh.sh
-[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh # This loads NVM, if exists
+[[ -s $ZSH/oh-my-zsh.sh ]] && . $ZSH/oh-my-zsh.sh # Load oh-my-zsh, if exists
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+[[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh \
+  && (nvm use default > /dev/null 2>&1) # Load NVM, if exists
+
+[[ -f ~/.liquidprompt ]] && . ~/.liquidprompt
 
 # Aliases, including my custom ones
 source ~/.files/.aliases

@@ -62,3 +62,4 @@ source ~/.files/.aliases
 # Customize to your needs...
 source ~/.files/.functions
 source ~/.files/.exports
+[[ -f "/root/.acme.sh/acme.sh.env" ]] && . "/root/.acme.sh/acme.sh.env"

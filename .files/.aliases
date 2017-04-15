@@ -1,10 +1,9 @@
-# PILUS Aliases
+# .aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....="cd ../../../.."
 alias a='php artisan'
-alias b='brew'
 alias c='composer '
 alias cela='clear; els -l -a -h '
 alias cla='clear; ls -lash '
@@ -13,10 +12,8 @@ alias dfh='df -h '
 alias ducks='du -cksh * | sort -rn | head '
 alias duh='du -h '
 alias edit=$EDITOR' '
-alias empty='echo "" > '
+alias empty='cat /dev/null > '
 alias fire='dig +short -t txt istheinternetonfire.com'
-alias fuck='$(thefuck $(fc -ln -1))'
-alias FUCK='fuck'
 
 alias grep='grep -i --color=auto '
 alias k9='kill -9 '
@@ -125,3 +122,4 @@ alias reload="exec $SHELL -l"
 alias nu='sudo nginx'
 alias nd='sudo nginx -s stop'
 alias nr='sudo nginx -s reload'
+alias nt='sudo nginx -t'

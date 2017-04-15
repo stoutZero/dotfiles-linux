@@ -1,4 +1,8 @@
 # .functions
+function ee {
+  empty $1 && $EDITOR $1
+}
+
 # Simple calculator
 function calc() {
   local result="";
@@ -8,8 +12,8 @@ function calc() {
   if [[ "$result" == *.* ]]; then
     # improve the output for decimal numbers
     printf "$result" |
-    sed -e 's/^\./0./'        `# add "0" for cases like ".5"` \
-        -e 's/^-\./-0./'      `# add "0" for cases like "-.5"`\
+    sed -e 's/^\./0./'        # add "0" for cases like ".5" \
+        -e 's/^-\./-0./'      # add "0" for cases like "-.5"\
         -e 's/0*$//;s/\.$//';  # remove trailing zeros
   else
     printf "$result";
@@ -206,11 +210,11 @@ function npmls() {
   (npm ls --depth=0 "$@" | sed "s/[├─┬]//g") 2>/dev/null
 }
 function hrb() {
-  # Convert input parameter (number of bytes) 
+  # Convert input parameter (number of bytes)
   # to Human Readable form
   SLIST=(bytes KiB MiB GiB TiB PiB EiB ZiB YiB)
   POWER=1
-  VAL=$( echo "scale=2; $1 / 1" | bc )  
+  VAL=$( echo "scale=2; $1 / 1" | bc )
   VINT=$( echo $VAL / 1024 | bc )
   while (( $VINT > 0 ))
   do
@@ -258,4 +262,3 @@ function _completemarks {
 
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
-

@@ -3,6 +3,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....="cd ../../../.."
+alias _='sudo '
 alias a='php artisan'
 alias c='composer '
 alias cela='clear; els -l -a -h '
@@ -20,6 +21,13 @@ alias k9='kill -9 '
 alias gx='ansible-galaxy'
 alias hs='fc -l 1 | grep --color=auto'
 
+# artisan related
+alias mfs='echo php artisan -vvv migrate:fresh --seed; php artisan -vvv migrate:fresh --seed '
+alias lal='tail -f -n 450 storage/logs/laravel*.log \
+  | grep -i -E \
+    "^\[\d{4}\-\d{2}\-\d{2} \d{2}:\d{2}:\d{2}\]|Next [\w\W]+?\:" \
+    --color '
+
 alias lla='ls -lash '
 alias lns='ln -s'
 alias ela='els -l -a -h '
@@ -31,7 +39,6 @@ alias nu='npm un '
 alias mkdir='mkdir -p '
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias mv='mv '
-alias pls='sudo '
 alias play='ansible-playbook '
 alias psg='ps aux | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
 alias psx='ps aux '
@@ -94,10 +101,6 @@ alias copy="tr -d '\n' | pbcopy"
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
 # Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
 # (useful when executing time-consuming commands)

@@ -17,7 +17,7 @@ ZSH_THEME="mortalscumbag"
 CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="false"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=15
@@ -44,7 +44,10 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in $ZSH/plugins/*)
 # Custom plugins may be added to $ZSH/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colored-man colorize encode64 git)
+plugins=(
+  colored-man colorize encode64 git nice-exit-code
+  zsh-syntax-highlighting zsh-autosuggestions
+)
 
 [[ -s $ZSH/oh-my-zsh.sh ]] && . $ZSH/oh-my-zsh.sh # Load oh-my-zsh, if exists
 
@@ -54,12 +57,15 @@ plugins=(colored-man colorize encode64 git)
 [[ -s ~/.nvm/nvm.sh ]] && . ~/.nvm/nvm.sh \
   && (nvm use default > /dev/null 2>&1) # Load NVM, if exists
 
-[[ -f ~/.liquidprompt ]] && . ~/.liquidprompt
+[[ -f ~/.liquidprompt ]] && . ~/.liquidprompt # Load liquidprompt, if exists
 
-# Aliases, including my custom ones
-source ~/.files/.aliases
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.files/.{exports,path,prompt,aliases,functions,extra};
+do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file
 
-# Customize to your needs...
-source ~/.files/.functions
-source ~/.files/.exports
 [[ -f "/root/.acme.sh/acme.sh.env" ]] && . "/root/.acme.sh/acme.sh.env"

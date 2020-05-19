@@ -14,6 +14,7 @@ alias ducks='du -cksh * | sort -rn | head '
 alias duh='du -h '
 alias edit=$EDITOR' '
 alias empty='cat /dev/null > '
+alias ex='exa -lah '
 alias fire='dig +short -t txt istheinternetonfire.com'
 
 alias grep='grep -i --color=auto '

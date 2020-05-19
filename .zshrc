@@ -45,8 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-  colored-man colorize encode64 git nice-exit-code
-  zsh-syntax-highlighting zsh-autosuggestions
+  colored-man-pages colorize encode64 git nice-exit-code
 )
 
 [[ -s $ZSH/oh-my-zsh.sh ]] && . $ZSH/oh-my-zsh.sh # Load oh-my-zsh, if exists
@@ -62,7 +61,7 @@ plugins=(
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.files/.{exports,path,prompt,aliases,functions,extra};
+for file in ~/.files/{exports,path,prompt,aliases,functions,extra}.sh;
 do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;

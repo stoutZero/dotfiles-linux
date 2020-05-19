@@ -71,7 +71,7 @@ function escape() {
   fi;
 }
 
-# Extract most know archives with one command
+# Extract most known archives with one command
 extract () {
   if [ -f $1 ] ; then
     case $1 in
@@ -93,7 +93,7 @@ extract () {
   fi
 }
 
-freq(){
+freq() {
   fc -l 1 \
   | awk '{h[$2]++}END{for(i in h){print h[i],i|"sort -rn|head -20"}}' \
   | awk '!max{max=$1;}{r="";i=s=60*$1/max;while(i-->0)r=r"#";printf "%15s %5d %s %s",$2,$1,r,"\n";}'
@@ -179,15 +179,16 @@ function hrb() {
   # to Human Readable form
   SLIST=(bytes KiB MiB GiB TiB PiB EiB ZiB YiB)
   POWER=1
-  VAL=$( echo "scale=2; $1 / 1" | bc )
-  VINT=$( echo $VAL / 1024 | bc )
+  VAL=$( printf "scale=2; $1 / 1" | bc )
+  VINT=$( printf $VAL / 1024 | bc )
   while (( $VINT > 0 ))
   do
     let POWER=POWER+1
-    VAL=$( echo "scale=2; $VAL / 1024" | bc)
-    VINT=$( echo $VAL / 1024 | bc )
+    VAL=$( printf "scale=2; $VAL / 1024" | bc)
+    VINT=$( printf $VAL / 1024 | bc )
   done
-  echo $VAL${SLIST[$POWER]}
+
+  printf $VAL${SLIST[$POWER]}
 }
 
 # Syntax-highlight JSON strings or files
@@ -225,17 +226,17 @@ function netsize {
   SLIST=(bytes KiB MiB GiB TiB PiB EiB ZiB YiB)
   POWER=1
 
-  VAL=$( echo "scale=2; $VAL / 1" | bc )
-  VINT=$( echo $VAL / 1024 | bc )
+  VAL=$( printf "scale=2; $VAL / 1" | bc )
+  VINT=$( printf $VAL / 1024 | bc )
 
   while [[ $VINT -gt "0" ]]
   do
     let POWER=POWER+1
-    VAL=$( echo "scale=2; $VAL / 1024" | bc)
-    VINT=$( echo $VAL / 1024 | bc )
+    VAL=$( printf "scale=2; $VAL / 1024" | bc)
+    VINT=$( printf $VAL / 1024 | bc )
   done
 
-  echo $VAL${SLIST[$POWER]}
+  printf $VAL${SLIST[$POWER]}
 }
 
 # `o` with no arguments opens the current directory, otherwise opens the given

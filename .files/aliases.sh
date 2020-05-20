@@ -49,7 +49,7 @@ alias ssh='ssh -o TCPKeepAlive=yes '
 alias sudo='nocorrect sudo '
 alias tln='tail -n '
 alias tlf='tail -f '
-alias wget='wget --no-check-certificate '
+# alias wget='wget --no-check-certificate '
 
 alias g="git"
 alias h="fc -l 1"
@@ -97,9 +97,6 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 # Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
 
-# Trim new lines and copy to clipboard
-alias copy="tr -d '\n' | pbcopy"
-
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
@@ -123,7 +120,8 @@ done
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
-alias nu='sudo nginx'
 alias nd='sudo nginx -s stop'
 alias nr='sudo nginx -s reload'
 alias nt='sudo nginx -t'
+
+alias po="popd "
